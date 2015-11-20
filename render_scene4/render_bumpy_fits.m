@@ -78,7 +78,7 @@ for bump = 0.4:0.4:4.4
             MakeMontage(radianceDataFiles, montageFile, toneMapFactor, isScale, hints);
 
         % display the sRGB montage
-        ShowXYZAndSRGB([], SRGBMontage, montageName);
+        % ShowXYZAndSRGB([], SRGBMontage, montageName);
     end
 end
 
