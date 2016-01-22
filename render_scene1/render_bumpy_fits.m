@@ -35,13 +35,15 @@ writetable(T,'/scratch/gk925/hpc_render/render_scene1/bumpy_fitrender_Conditions
 % Set preferences
 setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/hpc_render/render_scene1');
 
-for bump = 0.4:0.4:4.4
-    bump_level = strrep(num2str(bump), '.', '_');
+for bump = 5:5
+%     bump_level = strrep(num2str(bump), '.', '_');
+    bump_level = bump;
     % use this scene and condition file. 
-    parentSceneFile = ['bumpy',bump_level,'_5by5_correctCameraDist.dae']
+%     parentSceneFile = ['bumpy',bump_level,'_5by5_correctCameraDist.dae']
+    parentSceneFile = ['MeshD5G2L1.dae']
     conditionsFile = 'bumpy_fitrender_Conditions.txt';
-    mappingsFile = ['bumpy',bump_level,'_5by5_correctCameraDistDefaultMappings.txt'];
-%     mappingsFile = 'bumpy5_hemilight_ortho2DefaultMappings.txt'
+%     mappingsFile = ['bumpy',bump_level,'_5by5_correctCameraDistDefaultMappings.txt'];
+    mappingsFile = 'MeshD5G2L1DefaultMappings.txt'
 
     % Make sure all illuminants are added to the path. 
     addpath(genpath(pwd))
@@ -50,8 +52,8 @@ for bump = 0.4:0.4:4.4
     hints.whichConditions = [];
 
     % Choose batch renderer options.
-    hints.imageWidth = 550;
-    hints.imageHeight = 550;
+    hints.imageWidth = 650;
+    hints.imageHeight = 650;
     datetime=datestr(now);
     datetime=strrep(datetime,':','_'); %Replace colon with underscore
     datetime=strrep(datetime,'-','_');%Replace minus sign with underscore
