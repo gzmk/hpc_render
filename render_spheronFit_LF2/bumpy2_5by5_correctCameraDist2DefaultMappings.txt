@@ -1,0 +1,34 @@
+% flip the camera handedness to match Blender-Collada output to Mitsuba and PBRT
+Collada {
+    Camera:scale|sid=scale = -1 1 1
+}
+
+% materials
+Generic {
+	Material_017-material:material:ward
+    %Material-material:variant.string = ward
+    Material_017-material:alphaU.float = (alphau)
+    Material_017-material:alphaV.float = (alphau)
+    %Material-material:material:diffuse
+	%Material_017-material:diffuseReflectance.spectrum = mccBabel-7.spd
+	Material_017-material:diffuseReflectance.spectrum = (ro_d)
+    Material_017-material:specularReflectance.spectrum = (ro_s)
+
+}
+
+
+% lights
+Generic {
+	Hemi-light:emitter:envmap
+	Hemi-light:filename.string = Scene16.hdr
+
+}
+
+Mitsuba {
+    % use the path integrator with lots of samples
+    integrator:integrator:path
+    %integrator:hideEmitters.boolean = true
+    Camera-camera_sampler:sampleCount.integer = 320
+    %Camera-camera_film:pixelFormat.string = spectrumAlpha
+
+}
