@@ -10,7 +10,7 @@ module purge
 module load centos/bin
 module load matlab/2014a
 
-cd /scratch/gk925/hpc_render/render_scene40
+cd /scratch/gk925/hpc_render/render_spheronFit_LF1
 
 if [ "$PBS_JOBTMP" == "" ]; then
     export PBS_JOBTMP=/state/partition1/$USER
